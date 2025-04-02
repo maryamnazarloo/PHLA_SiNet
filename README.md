@@ -1,3 +1,5 @@
+# PHLA_SiNet
+
 HLA-peptide-predictor/
 │
 ├── src/                               # All Python source code
@@ -32,8 +34,6 @@ HLA-peptide-predictor/
 ├── setup.py                           # Installation script
 ├── LICENSE                            # MIT/Apache/etc.
 └── README.md                          # Project documentation
-
-# PHLA_SiNet
 
 A deep learning model for predicting binding interactions between HLA alleles and peptides. This repository provides both the trained model and the tools to run predictions on new data.
 
