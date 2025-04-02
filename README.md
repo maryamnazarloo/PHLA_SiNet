@@ -46,7 +46,6 @@ probability = predictor.predict_single(
 # Batch prediction from file
 results = predictor.predict("input_samples.csv")
 ```
-
 The easiest way to use PHLA-SiNet is via our Google Colab notebook:  
 [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/drive/112QDqAUa_X5_NDLi8sGxI8Q76VL_Eea7?usp=sharing)
 
@@ -66,8 +65,7 @@ Create a CSV file with these columns (example below):
 **Note: HLA_sequence is only required for novel HLA alleles not in the training data**
 
 ## Dataset
-This project uses training and testing data (both External and Independent) from the [TransPHLA-AOMP](https://github.com/a96123155/TransPHLA-AOMP) dataset.  
-
+This project uses training and testing data (both External and Independent) from the TransPHLA-AOMP dataset.  
 [![TransPHLA-AOMP Dataset](https://img.shields.io/badge/Dataset-TransPHLA--AOMP-blue?style=flat&logo=github)](https://github.com/a96123155/TransPHLA-AOMP)
 
 ## Contact
