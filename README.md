@@ -48,5 +48,5 @@ Create a CSV file with these columns (example below):
 
 | HLA        | peptide   | HLA_sequence                  |
 |------------|-----------|-------------------------------|
-| HLA-A*02:01 | ACDEFGHIK | MVVMAPRTLFLL... (full sequence) |
+| HLA-A*02:01 | ACDEFGHIK | MVVMAPRTLFLL... (pseudo sequence) |
 | HLA-B*07:02 | YLLPAIVHI | MAVMAPRTLLL...               |
