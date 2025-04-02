@@ -19,9 +19,9 @@ A deep learning model for predicting binding interactions between HLA alleles an
 
 ### Quick Install
 ```bash
-git clone https://github.com/yourusername/HLA-peptide-predictor.git
-cd HLA-peptide-predictor
-pip install -r requirements.txt
+!git clone https://github.com/maryamnazarloo/PHLA_SiNet.git
+%cd PHLA_SiNet
+!pip install -r requirements.txt
 ```
 # Usage
 ## Basic Prediction
