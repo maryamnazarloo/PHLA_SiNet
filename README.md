@@ -23,8 +23,8 @@ git clone https://github.com/yourusername/HLA-peptide-predictor.git
 cd HLA-peptide-predictor
 pip install -r requirements.txt
 ```
-**Usage**
-Basic Prediction
+#Usage
+##Basic Prediction
 ```bash
 from hla_predictor import HLAPredictor
 
@@ -43,10 +43,13 @@ probability = predictor.predict_single(
 # Batch prediction from file
 results = predictor.predict("input_samples.csv")
 ```
-**Input File Format**
+##Input File Format
 Create a CSV file with these columns (example below):
 
-
-HLA	peptide	HLA_sequence
-HLA-A*02:01	ACDEFGHIK	MVVMAPRTLFLL... (sedu sequence)
-HLA-B*07:02	YLLPAIVHI	MAVMAPRTLLL...
+----------------------------------------
+HLA	            peptide	    HLA_sequence
+----------------------------------------
+HLA-A*02:01	    ACDEFGHIK	MVVMAPRTLFLL... (sedu sequence)
+----------------------------------------
+HLA-B*07:02	    YLLPAIVHI	MAVMAPRTLLL...
+----------------------------------------
