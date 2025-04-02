@@ -26,18 +26,18 @@ A deep learning model for predicting binding interactions between HLA alleles an
 # Usage
 ## Basic Prediction
 ```bash
-from hla_predictor import HLAPredictor
+!from hla_predictor import HLAPredictor
 
 # Initialize predictor
 predictor = HLAPredictor(
-    model_path="models/your_model.h5",
+    model_path="models/siamese_net.h5",
     hla_feature_path="data/hla_features.csv"
 )
 
 # Predict single pair
 probability = predictor.predict_single(
     peptide="ACDEFGHIK", 
-    hla_allele="HLA-A*02:01"
+    hla_allele="HLA-A02:01"
 )
 
 # Batch prediction from file
@@ -48,5 +48,5 @@ Create a CSV file with these columns (example below):
 
 | HLA        | peptide   | HLA_sequence                  |
 |------------|-----------|-------------------------------|
-| HLA-A*02:01 | ACDEFGHIK | MVVMAPRTLFLL... (pseudo sequence) |
-| HLA-B*07:02 | YLLPAIVHI | MAVMAPRTLLL...               |
+| HLA-A02:01 | ACDEFGHIK | MVVMAPRTLFLL... (pseudo sequence) |
+| HLA-B07:02 | YLLPAIVHI | MAVMAPRTLLL...               |
