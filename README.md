@@ -1,22 +1,26 @@
-# PHLA_SiNet
+# PHLA-SiNet
+**Peptide-HLA Interaction Prediction Using Siamese Neural Networks**
 
-A deep learning model for predicting binding interactions between HLA alleles and peptides. This repository provides both the trained model and the tools to run predictions on new data.
+![PHLA-SiNet Workflow](docs/workflow.png) 
+
+## Abstract
+
+The Human Leukocyte Antigen (HLA) system is crucial in the immune response, presenting peptides to T cells to distinguish between self and non-self. This study introduces PHLA-SiNet pipeline, a novel computational approach to predict peptide-HLA (PHLA) interactions, using the diversity and specificity of HLA molecules. We propose an information content-based feature for HLAs, derived from their associated peptides, and utilize ESM embeddings to represent peptides. By employing a Siamese Neural Network (SNN), we predict PHLA interactions, addressing limitations of existing models that rely on HLA names or sequences. Our pipeline enhances prediction accuracy by including a new biological feature for HLA molecules based on binding and non-binding peptides. Additionally, we overcome constraints of models restricted to peptides length by employing a large language model for flexible peptide representation. This approach demonstrates improved performance in predicting PHLA interactions, offering a strong tool for advancing cancer immunotherapy and other HLA-related research.
 
 ## Features
 
-- Predict HLA-peptide binding probabilities
-- Handle both known and novel HLA alleles
-- Process single sequences or batch files
-- Easy Colab integration
+- 🧬 **Novel HLA features**: Information content-based representation derived from binding/non-binding peptides
+- 🧠 **Advanced peptide embeddings**: ESM-2 language model for sequence representation
+- ⚡ **Siamese architecture**: Neural network optimized for interaction prediction
+- 🔄 **Flexible handling**: Works with both known and novel HLA alleles
+- 📊 **Multiple input formats**: Accepts single sequences or batch files
 
-## Installation
-
-### Requirements
+## Requirements
 - Python 3.8+
 - TensorFlow 2.6+
-- PyTorch (for ESM embeddings)
-- fair-esm (ESM-2 models)
-
+- PyTorch 1.12+ (for ESM embeddings)
+- fair-esm 0.4.2+
+ 
 ### Quick Install
 ```bash
 !git clone https://github.com/maryamnazarloo/PHLA_SiNet.git
@@ -49,3 +53,15 @@ Create a CSV file with these columns (example below):
 |------------|-----------|-------------------------------|
 | HLA-A02:01 | ACDEFGHIK | MVVMAPRTLFLL... (pseudo sequence) |
 | HLA-B07:02 | YLLPAIVHI | MAVMAPRTLLL...               |
+
+**Note: HLA_sequence is only required for novel HLA alleles not in the training data**
+
+## Dataset
+This project uses training and testing data (both External and Independent) from the [TransPHLA-AOMP](https://github.com/a96123155/TransPHLA-AOMP) dataset.  
+
+[![TransPHLA-AOMP Dataset](https://img.shields.io/badge/Dataset-TransPHLA--AOMP-blue?style=flat&logo=github)](https://github.com/a96123155/TransPHLA-AOMP)
+
+## Contact
+For any questions, please contact:
+Maryam Nazarloo
+maryamnazarloo966@gmail.com
