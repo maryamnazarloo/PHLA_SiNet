@@ -30,8 +30,7 @@ A deep learning model for predicting binding interactions between HLA alleles an
 
 # Initialize predictor
 predictor = HLAPredictor(
-    model_path="models/siamese_net.h5",
-    hla_feature_path="data/hla_features.csv"
+    model_path="models/siamese_net.h5"
 )
 
 # Predict single pair
