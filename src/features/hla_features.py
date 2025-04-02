@@ -34,7 +34,7 @@ class HLAFeatureGenerator:
         max_score = min(len(seq1), len(seq2)) * self.substitution_matrix[('A', 'A')]
         return align.score / max_score
 
-    def get_features(self, hla_allele: str, hla_sequence: str = None):
+    def get_features(self, hla_allele: str, hla_sequence: str = None) -> np.ndarray:
         """
         Get features for HLA allele, using sequence similarity if allele is new
         
@@ -65,6 +65,13 @@ class HLAFeatureGenerator:
         
         # Compute weighted average of features
         features = np.average(self.features.iloc[:, 2:], axis=0, weights=weights)
+        # Convert to float32 before returning
+        features = np.array(features, dtype=np.float32)
+        
+        # Validation
+        if features.dtype != np.float32:
+            raise ValueError(f"Features must be float32, got {features.dtype}")
+            
         return features
 
     def save_features(self, output_path: str):
