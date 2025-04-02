@@ -22,9 +22,10 @@ A deep learning model for predicting binding interactions between HLA alleles an
 git clone https://github.com/yourusername/HLA-peptide-predictor.git
 cd HLA-peptide-predictor
 pip install -r requirements.txt
-
+```
 **Usage**
 Basic Prediction
+```bash
 from hla_predictor import HLAPredictor
 
 # Initialize predictor
@@ -41,7 +42,7 @@ probability = predictor.predict_single(
 
 # Batch prediction from file
 results = predictor.predict("input_samples.csv")
-###
+```
 **Input File Format**
 Create a CSV file with these columns (example below):
 
