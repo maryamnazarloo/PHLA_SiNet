@@ -43,9 +43,9 @@ probability = predictor.predict_single(
 # Batch prediction from file
 results = predictor.predict("input_samples.csv")
 ```
-## PInput File Format
+## Input File Format
 Create a CSV file with these columns (example below):
 
-HLA	            peptide	    HLA_sequence
-HLA-A*02:01	    ACDEFGHIK	MVVMAPRTLFLL... (sedu sequence)
-HLA-B*07:02	    YLLPAIVHI	MAVMAPRTLLL...
+-HLA	            peptide	    HLA_sequence
+-HLA-A*02:01	    ACDEFGHIK	MVVMAPRTLFLL... (sedu sequence)
+-HLA-B*07:02	    YLLPAIVHI	MAVMAPRTLLL...
