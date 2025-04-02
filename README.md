@@ -46,6 +46,14 @@ probability = predictor.predict_single(
 # Batch prediction from file
 results = predictor.predict("input_samples.csv")
 ```
+The easiest way to use PHLA-SiNet is via our Google Colab notebook:  
+🔗 [PHLA-SiNet Colab Notebook](https://colab.research.google.com/drive/112QDqAUa_X5_NDLi8sGxI8Q76VL_Eea7?usp=sharing)
+
+Simply:
+1. Click the Open in Colab button above
+2. Run all cells
+3. Upload your input file when prompted
+   
 ### Input File Format
 Create a CSV file with these columns (example below):
 
