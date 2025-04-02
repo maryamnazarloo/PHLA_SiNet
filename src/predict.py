@@ -3,6 +3,7 @@ import numpy as np
 import pandas as pd
 from .model import load_model
 from .features import HLAFeatureGenerator, PeptideEmbedder
+from typing import Union
 
 class HLAPredictor:
     """
@@ -31,43 +32,50 @@ class HLAPredictor:
             Binding probability (0-1)
         """
         # Get features
-        peptide_emb = self.peptide_embedder.embed_peptides([peptide]).values
-        hla_feats = np.array([self.hla_processor.get_features(hla_allele)])
+        peptide_emb = self.peptide_embedder.embed_peptides([peptide]).values.astype(np.float32)
+        hla_feats = np.array([self.hla_processor.get_features(hla_allele)], dtype=np.float32)
         
         # Predict
         return self.model.predict([peptide_emb, hla_feats])[0][0]
 
-    def predict(self, input_data: pd.DataFrame) -> pd.DataFrame:
-      """
-      Batch prediction from DataFrame with automatic type conversion
-      
-      Args:
-          input_data: DataFrame with 'peptide' and 'HLA' columns
+    def predict(self, input_file: str) -> pd.DataFrame:
+        """
+        Batch prediction from input file with automatic type conversion
+        
+        Args:
+            input_file: Path to CSV/Excel file with 'peptide' and 'HLA' columns
           
-      Returns:
-          DataFrame with added 'prediction_prob' column
-      """
-    # Create a copy and ensure proper types
+        Returns:
+            DataFrame with added 'prediction_prob' column
+        """
+        # Read input file
+        if input_file.endswith('.csv'):
+            input_data = pd.read_csv(input_file)
+        elif input_file.endswith(('.xlsx', '.xls')):
+            input_data = pd.read_excel(input_file)
+        else:
+            raise ValueError("Unsupported file format. Use .csv or .xlsx")
+        
+        # Clean HLA names and ensure proper types
         results = input_data.copy()
+        results['HLA'] = results['HLA'].str.replace("*", "", regex=False).astype(str)
         results['peptide'] = results['peptide'].astype(str)
-        results['HLA'] = results['HLA'].astype(str)
         
         try:
             # Convert features to float32 for TensorFlow
             peptide_embs = self.peptide_embedder.embed_peptides(results['peptide']).values.astype(np.float32)
             hla_feats = np.stack([
-            np.array(self.hla_processor.get_features(hla), dtype=np.float32) 
-            for hla in results['HLA']
+                np.array(self.hla_processor.get_features(hla), dtype=np.float32) 
+                for hla in results['HLA']
             ])
-        
-            # Double-check types
+            
+            # Debug output
             print("Final dtypes:")
             print(f"Peptide embeddings: {peptide_embs.dtype}")
             print(f"HLA features: {hla_feats.dtype}")
             
             # Predict
             results['prediction_prob'] = self.model.predict([peptide_embs, hla_feats]).flatten()
-            
             return results
             
         except Exception as e:
