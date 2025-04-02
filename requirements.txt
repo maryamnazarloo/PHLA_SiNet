@@ -1,0 +1,6 @@
+tensorflow>=2.6
+pandas
+numpy
+tqdm
+torch
+fair-esm
