@@ -1,3 +1,38 @@
+HLA-peptide-predictor/
+│
+├── src/                               # All Python source code
+│   ├── __init__.py                    # Makes src a Python package
+│   ├── predict.py                     # Main prediction interface (HLAPredictor class)
+│   ├── model.py                       # Model architecture (build_model function)
+│   ├── features/                      # Feature computation
+│   │   ├── __init__.py
+│   │   ├── hla_features.py            # HLAFeatureGenerator class
+│   │   └── peptide_embedder.py        # PeptideEmbedder class
+│   └── utils.py                       # Helper functions (if any)
+│
+├── models/                            # Pretrained models
+│   └── best_model.h5                  # Your trained .h5 file
+│
+├── data/                              # Feature files and sample data
+│   ├── hla_features.csv               # Precomputed HLA features
+│   └── example_peptides.csv           # Sample input
+│
+├── notebooks/                         # Jupyter/Colab notebooks
+│   ├── Quickstart.ipynb               # Tutorial notebook
+│   └── Training_Pipeline.ipynb        # Model training notebook (optional)
+│
+├── tests/                             # Test scripts
+│   ├── test_predict.py
+│   └── test_features.py
+│
+├── docs/                              # Documentation (optional)
+│   └── API_Reference.md
+│
+├── requirements.txt                   # Python dependencies
+├── setup.py                           # Installation script
+├── LICENSE                            # MIT/Apache/etc.
+└── README.md                          # Project documentation
+
 # PHLA_SiNet
 
 A deep learning model for predicting binding interactions between HLA alleles and peptides. This repository provides both the trained model and the tools to run predictions on new data.
