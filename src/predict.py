@@ -48,30 +48,30 @@ class HLAPredictor:
           DataFrame with added 'prediction_prob' column
       """
     # Create a copy and ensure proper types
-    results = input_data.copy()
-    results['peptide'] = results['peptide'].astype(str)
-    results['HLA'] = results['HLA'].astype(str)
-    
-    try:
-        # Convert features to float32 for TensorFlow
-        peptide_embs = self.peptide_embedder.embed_peptides(results['peptide']).values.astype(np.float32)
-        hla_feats = np.stack([
-        np.array(self.hla_processor.get_features(hla), dtype=np.float32) 
-        for hla in results['HLA']
-        ])
-    
-        # Double-check types
-        print("Final dtypes:")
-        print(f"Peptide embeddings: {peptide_embs.dtype}")
-        print(f"HLA features: {hla_feats.dtype}")
+        results = input_data.copy()
+        results['peptide'] = results['peptide'].astype(str)
+        results['HLA'] = results['HLA'].astype(str)
         
-        # Predict
-        results['prediction_prob'] = self.model.predict([peptide_embs, hla_feats]).flatten()
+        try:
+            # Convert features to float32 for TensorFlow
+            peptide_embs = self.peptide_embedder.embed_peptides(results['peptide']).values.astype(np.float32)
+            hla_feats = np.stack([
+            np.array(self.hla_processor.get_features(hla), dtype=np.float32) 
+            for hla in results['HLA']
+            ])
         
-        return results
-        
-    except Exception as e:
-        print("Prediction failed. Checking data types...")
-        print("\nPeptide embeddings dtype:", peptide_embs.dtype if 'peptide_embs' in locals() else 'N/A')
-        print("HLA features dtype:", hla_feats.dtype if 'hla_feats' in locals() else 'N/A')
-        raise ValueError(f"Prediction error: {str(e)}") from e
+            # Double-check types
+            print("Final dtypes:")
+            print(f"Peptide embeddings: {peptide_embs.dtype}")
+            print(f"HLA features: {hla_feats.dtype}")
+            
+            # Predict
+            results['prediction_prob'] = self.model.predict([peptide_embs, hla_feats]).flatten()
+            
+            return results
+            
+        except Exception as e:
+            print("Prediction failed. Checking data types...")
+            print("\nPeptide embeddings dtype:", peptide_embs.dtype if 'peptide_embs' in locals() else 'N/A')
+            print("HLA features dtype:", hla_feats.dtype if 'hla_feats' in locals() else 'N/A')
+            raise ValueError(f"Prediction error: {str(e)}") from e
