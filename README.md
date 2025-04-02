@@ -9,11 +9,11 @@ The Human Leukocyte Antigen (HLA) system is crucial in the immune response, pres
 
 ## Features
 
-- 🧬 **Novel HLA features**: Information content-based representation derived from binding/non-binding peptides
-- 🧠 **Advanced peptide embeddings**: ESM-2 language model for sequence representation
-- ⚡ **Siamese architecture**: Neural network optimized for interaction prediction
-- 🔄 **Flexible handling**: Works with both known and novel HLA alleles
-- 📊 **Multiple input formats**: Accepts single sequences or batch files
+- **Novel HLA features**: Information content-based representation derived from binding/non-binding peptides
+- **Advanced peptide embeddings**: ESM-2 language model for sequence representation
+- **Siamese architecture**: Neural network optimized for interaction prediction
+- **Flexible handling**: Works with both known and novel HLA alleles
+- **Multiple input formats**: Accepts single sequences or batch files
 
 ## Requirements
 - Python 3.8+
@@ -21,14 +21,14 @@ The Human Leukocyte Antigen (HLA) system is crucial in the immune response, pres
 - PyTorch 1.12+ (for ESM embeddings)
 - fair-esm 0.4.2+
  
-### Quick Install
+## Quick Install
 ```bash
 !git clone https://github.com/maryamnazarloo/PHLA_SiNet.git
 %cd PHLA_SiNet
 !pip install -r requirements.txt
 ```
-# Usage
-## Basic Prediction
+## Usage
+### Basic Prediction
 ```bash
 !from hla_predictor import HLAPredictor
 
@@ -46,7 +46,7 @@ probability = predictor.predict_single(
 # Batch prediction from file
 results = predictor.predict("input_samples.csv")
 ```
-## Input File Format
+### Input File Format
 Create a CSV file with these columns (example below):
 
 | HLA        | peptide   | HLA_sequence                  |
