@@ -1,6 +1,6 @@
 # PHLA_SiNet
 
-A deep learning model for predicting binding interactions between HLA alleles and peptides. This repository provides both the trained model and tools to run predictions on new data.
+A deep learning model for predicting binding interactions between HLA alleles and peptides. This repository provides both the trained model and the tools to run predictions on new data.
 
 ## Features
 
@@ -45,7 +45,6 @@ results = predictor.predict("input_samples.csv")
 ```
 ## Input File Format
 Create a CSV file with these columns (example below):
-
--HLA	            peptide	    HLA_sequence
--HLA-A*02:01	    ACDEFGHIK	MVVMAPRTLFLL... (sedu sequence)
--HLA-B*07:02	    YLLPAIVHI	MAVMAPRTLLL...
+- HLA	            peptide	    HLA_sequence
+- HLA-A*02:01	    ACDEFGHIK	MVVMAPRTLFLL... (sedu sequence)
+- HLA-B*07:02	    YLLPAIVHI	MAVMAPRTLLL...
