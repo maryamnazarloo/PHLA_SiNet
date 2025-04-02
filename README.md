@@ -41,7 +41,7 @@ probability = predictor.predict_single(
 
 # Batch prediction from file
 results = predictor.predict("input_samples.csv")
-
+###
 **Input File Format**
 Create a CSV file with these columns (example below):
 
