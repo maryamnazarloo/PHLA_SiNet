@@ -37,12 +37,6 @@ predictor = HLAPredictor(
     model_path="models/siamese_net.h5"
 )
 
-# Predict single pair
-probability = predictor.predict_single(
-    peptide="ACDEFGHIK", 
-    hla_allele="HLA-A02:01"
-)
-
 # Batch prediction from file
 results = predictor.predict("input_samples.csv")
 ```
