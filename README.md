@@ -57,7 +57,7 @@ Create a CSV file with these columns (example below):
 
 **Note: HLA_sequence is only required for novel HLA alleles not in the training data**
 
-- You can use HLA_pseudo_sequence.dat, which is located in data to find pseudo sequence for some of HLAs
+- You can use HLA_pseudo_sequence.dat, which is located in the data section, to find the pseudo sequences for some of HLAs
 
 
 ## Dataset
