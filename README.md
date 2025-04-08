@@ -56,7 +56,8 @@ Create a CSV file with these columns (example below):
 | HLA-B07:02 | YLLPAIVHI | MAVMAPRTLLL...               |
 
 **Note: HLA_sequence is only required for novel HLA alleles not in the training data**
-(you can use HLA_pseudo_sequence.dat, which is located in data to find pseudo sequence for some of HLAs)
+you can use HLA_pseudo_sequence.dat, which is located in data to find pseudo sequence for some of HLAs
+
 
 ## Dataset
 This project uses training and testing data (both External and Independent) from the TransPHLA-AOMP dataset.  
