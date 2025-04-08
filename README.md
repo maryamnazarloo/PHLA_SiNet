@@ -5,7 +5,7 @@
 
 ## Abstract
 
-The Human Leukocyte Antigen (HLA) system is crucial in the immune response, presenting peptides to T cells to distinguish between self and non-self. This study introduces PHLA-SiNet pipeline, a novel computational approach to predict peptide-HLA (PHLA) interactions, using the diversity and specificity of HLA molecules. We propose an information content-based feature for HLAs, derived from their associated peptides, and utilize ESM embeddings to represent peptides. By employing a Siamese Neural Network (SNN), we predict PHLA interactions, addressing limitations of existing models that rely on HLA names or sequences. Our pipeline enhances prediction accuracy by including a new biological feature for HLA molecules based on binding and non-binding peptides. Additionally, we overcome constraints of models restricted to peptides length by employing a large language model for flexible peptide representation. This approach demonstrates improved performance in predicting PHLA interactions, offering a strong tool for advancing cancer immunotherapy and other HLA-related research.
+The Human Leukocyte Antigen (HLA) system is crucial in the immune response, presenting peptides to T cells to distinguish between self and non-self. This study introduces the PHLA-SiNet pipeline, a novel computational approach to predict peptide-HLA (PHLA) interactions, using the diversity and specificity of HLA molecules. We propose an information content-based feature for HLAs, derived from their associated peptides, and utilize ESM embeddings to represent peptides. By employing a Siamese Neural Network (SNN), we predict PHLA interactions, addressing limitations of existing models that rely on HLA names or sequences. Our pipeline enhances prediction accuracy by including a new biological feature for HLA molecules based on binding and non-binding peptides. Additionally, we overcome constraints of models restricted to peptides length by employing a large language model for flexible peptide representation. This approach demonstrates improved performance in predicting PHLA interactions, offering a strong tool for advancing cancer immunotherapy and other HLA-related research.
 
 ## Features
 
@@ -56,6 +56,7 @@ Create a CSV file with these columns (example below):
 | HLA-B07:02 | YLLPAIVHI | MAVMAPRTLLL...               |
 
 **Note: HLA_sequence is only required for novel HLA alleles not in the training data**
+(you can use HLA_pseudo_sequence.dat, which is located in data to find pseudo sequence for some of HLAs)
 
 ## Dataset
 This project uses training and testing data (both External and Independent) from the TransPHLA-AOMP dataset.  
