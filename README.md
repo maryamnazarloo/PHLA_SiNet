@@ -13,7 +13,6 @@ The Human Leukocyte Antigen (HLA) system is crucial in the immune response, pres
 - **Advanced peptide embeddings**: ESM-2 language model for sequence representation
 - **Siamese architecture**: Neural network optimized for interaction prediction
 - **Flexible handling**: Works with both known and novel HLA alleles
-- **Multiple input formats**: Accepts single sequences or batch files
 
 ## Requirements
 - Python 3.8+
