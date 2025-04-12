@@ -40,7 +40,7 @@ def build_model(peptide_dim=320, hla_dim=180):
 
     # HLA branch
     y = Dense(128, activation=swish)(hla_input)
-    hla_output = Dropout(0.5)(y)
+    hla_output = Dropout(0.2)(y)
 
     # Distance layer
     distance = Lambda(lambda tensors: K.abs(tensors[0] - tensors[1]),
